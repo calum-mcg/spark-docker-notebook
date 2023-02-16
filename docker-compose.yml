@@ -1,19 +1,10 @@
 version: "3"
 
 services:
-  storage-transfer-agents:
+  spark-notebook:
     build: .
     command: jupyter notebook --ip 0.0.0.0 --no-browser
     ports: 
     - "8888:8888"
-    environment:
-      GS_PROJECT: ${GS_PROJECT}
-      GS_CLIENT_SECRETS: ${GS_CLIENT_SECRETS}
-      GS_BUCKET: ${GS_BUCKET}
-      S3_REGION: ${S3_REGION}
-      S3_ENDPOINT: ${S3_ENDPOINT}
-      S3_BUCKET: ${S3_BUCKET}
-      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
-      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
     volumes:
       - .:/usr/src/app
